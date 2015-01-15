@@ -14,6 +14,7 @@
 		F93CF65C1A675029007104D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F93CF65B1A675029007104D7 /* Images.xcassets */; };
 		F93CF65F1A675029007104D7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93CF65D1A675029007104D7 /* LaunchScreen.xib */; };
 		F93CF66B1A675029007104D7 /* RPN_CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F93CF66A1A675029007104D7 /* RPN_CalculatorTests.m */; };
+		F93CF6781A676A4C007104D7 /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = F93CF6771A676A4C007104D7 /* CalculatorBrain.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		F93CF6641A675029007104D7 /* RPN CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RPN CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93CF6691A675029007104D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F93CF66A1A675029007104D7 /* RPN_CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RPN_CalculatorTests.m; sourceTree = "<group>"; };
+		F93CF6761A676A4C007104D7 /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
+		F93CF6771A676A4C007104D7 /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,8 @@
 		F93CF64D1A675029007104D7 /* RPN Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				F93CF6761A676A4C007104D7 /* CalculatorBrain.h */,
+				F93CF6771A676A4C007104D7 /* CalculatorBrain.m */,
 				F93CF6521A675029007104D7 /* AppDelegate.h */,
 				F93CF6531A675029007104D7 /* AppDelegate.m */,
 				F93CF6551A675029007104D7 /* ViewController.h */,
@@ -163,6 +168,7 @@
 		F93CF6431A675029007104D7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = Calculator;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Ryan Lake";
 				TargetAttributes = {
@@ -221,6 +227,7 @@
 			files = (
 				F93CF6571A675029007104D7 /* ViewController.m in Sources */,
 				F93CF6541A675029007104D7 /* AppDelegate.m in Sources */,
+				F93CF6781A676A4C007104D7 /* CalculatorBrain.m in Sources */,
 				F93CF6511A675029007104D7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
