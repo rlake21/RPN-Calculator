@@ -48,6 +48,20 @@
     } else if ([operation isEqualToString:@"/"]){
         double divisor = [self popOperand];
         if (divisor) result = [self popOperand] / divisor;
+    } else if ([operation isEqualToString:@"sin()"]){
+        result = sin([self popOperand]);
+    } else if ([operation isEqualToString:@"cos()"]){
+        result = cos([self popOperand]);
+    } else if ([operation isEqualToString:@"sqrt()"]){
+        result = sqrt([self popOperand]);
+    } else if ([operation isEqualToString:@"π"]){
+        result = 3.141592;
+    } else if ([operation isEqualToString:@"Clear"]){
+        NSNumber *operandObject = [self.operandStack lastObject];
+        while (operandObject){
+           [self.operandStack removeLastObject];
+            operandObject = [self.operandStack lastObject];
+        }
     }
     
     [self pushOperand:result];

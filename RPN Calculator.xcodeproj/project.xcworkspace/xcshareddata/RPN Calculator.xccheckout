@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E51988AA-4F9B-4304-89DC-0887768069CA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>RPN Calculator</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4F37DAEF7EF864D1ED23389348F05E09529915C3</key>
+		<string>https://github.com/rlake21/RPN-Calculator.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>RPN Calculator.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4F37DAEF7EF864D1ED23389348F05E09529915C3</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/rlake21/RPN-Calculator.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4F37DAEF7EF864D1ED23389348F05E09529915C3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4F37DAEF7EF864D1ED23389348F05E09529915C3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RPN%20Calculator</string>
+		</dict>
+	</array>
+</dict>
+</plist>
