@@ -44,6 +44,15 @@
     
 }
 
+- (IBAction)variablePressed:(id)sender {
+    if (self.userIsInTheMiddleOfEnteringANumber){
+        [self enterPressed];
+    }
+    [self.brain pushVariable:[sender currentTitle]];
+    self.display.text = [sender currentTitle];
+    [self enterPressed];
+}
+
 - (IBAction)decimalPressed:(id)sender {
     NSString *digit = [sender currentTitle];
     if (!self.userEnteredADecimal){
@@ -82,6 +91,5 @@
         self.enteredDisplay.text = [NSString stringWithFormat:@"%@%s%@",previousDisplay, " ", operation];
     }
 }
-
 
 @end
