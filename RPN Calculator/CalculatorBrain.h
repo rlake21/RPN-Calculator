@@ -10,13 +10,20 @@
 
 @interface CalculatorBrain : NSObject
 
-- (void)pushOperand:(double)operand;
-- (double)performOperation:(NSString *)operation;
-- (void)pushVariable:(NSString*)variable;
+@property (readonly) id program;
 
-@property (nonatomic, readonly) id program;
+- (void)pushOperand:(double)operand;
+- (void)pushVariable:(NSString *) variable;
+- (void)pushOperation:(NSString *) operation;
+- (id)performOperation:(NSString *)operation;
 
 + (NSString *)descriptionOfProgram:(id)program;
-+ (double)runProgram:(id)program;
+
++ (id)runProgram:(id)program;
++ (id)runProgram:(id)program
+usingVariableValues:(NSDictionary *)variableValue;
+
+
 
 @end
+

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Ryan Lake. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CalculatorViewController.h"
 #import "CalculatorBrain.h"
 
 @interface ViewController ()
@@ -68,21 +68,24 @@
 
 - (IBAction)enterPressed {
     NSString *previousDisplay = self.enteredDisplay.text;
-    self.enteredDisplay.text = [NSString stringWithFormat:@"%@%s%@", previousDisplay, " ", self.display.text];
+    self.enteredDisplay.text = [NSString stringWithFormat:@"%@%s%@%s", previousDisplay, " ", self.display.text, " ="];
     
     [self.brain pushOperand:[self.display.text doubleValue]];
     self.userIsInTheMiddleOfEnteringANumber = NO;
     self.userEnteredADecimal = NO;
 }
 
+
 - (IBAction)operationPressed:(UIButton *)sender {
     
     if (self.userIsInTheMiddleOfEnteringANumber) {
         [self enterPressed];
     }
-    
     NSString *operation = [sender currentTitle];
-    double result = [self.brain performOperation:operation];
+    
+    [self.brain pushOperation:operation];
+    
+    double result = [[self.brain performOperation:operation] doubleValue];
     self.display.text = [NSString stringWithFormat:@"%g",result];
     if ([operation  isEqual: @"Clear"]){
         self.enteredDisplay.text = [NSString stringWithFormat:@"Entered: "];

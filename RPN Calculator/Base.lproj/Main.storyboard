@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calculator-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -288,7 +288,7 @@
                                     <rect key="frame" x="231" y="204" width="64" height="30"/>
                                 </variation>
                                 <connections>
-                                    <action selector="operationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hRM-lq-ErX"/>
+                                    <action selector="operationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c30-67-X2j"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGE-qW-4vs">
@@ -387,7 +387,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="Kwc-bv-bTP"/>
+                    <navigationItem key="navigationItem" title="Calculator" id="Kwc-bv-bTP"/>
                     <connections>
                         <outlet property="display" destination="hR8-KB-Uxg" id="C5L-xd-hDS"/>
                         <outlet property="enteredDisplay" destination="9i7-kW-oOD" id="T4J-Jw-og5"/>
@@ -406,6 +406,7 @@
                         <viewControllerLayoutGuide type="bottom" id="T1y-l2-ezl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eWe-2I-JuZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

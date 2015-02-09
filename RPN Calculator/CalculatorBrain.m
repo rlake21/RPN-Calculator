@@ -17,21 +17,23 @@
 
 @synthesize programStack = _programStack;
 
-- (NSMutableArray *)programStack{
-    if (!_programStack){
-        _programStack = [[NSMutableArray alloc] init];
-    }
+- (NSMutableArray *)programStack {
+    if (_programStack == nil) _programStack = [[NSMutableArray alloc] init];
     return _programStack;
 }
+
 
 - (id)program
 {
     return [self.programStack copy];
 }
 
-+ (NSString *)descriptionOfProgram:(id)program
-{
-    return @"Implement this in Homework #2";
++ (NSString *)descriptionOfProgram:(id)program {
+    
+    
+    // TODO: write however you would like to display the sequence of operands, variables, operations on stack
+    
+    return @"implement this";
 }
 
 
@@ -43,12 +45,81 @@
     [self.programStack addObject:variable];
 }
 
+- (void)pushOperation:(NSString *) operation {
+    [self.programStack addObject:operation];
+}
 - (double)performOperation:(NSString *)operation
 {
     [self.programStack addObject:operation];
-    return [[self class] runProgram:self.program];
+    return [[[self class] runProgram:self.program] doubleValue];
 }
 
++ (id)popOperandOffProgramStack:(NSMutableArray *) stack {
+    
+    double result = 0;
+    
+    id topOfStack = [stack lastObject];
+    if (topOfStack) [stack removeLastObject]; else return @"0";
+    
+    if ([topOfStack isKindOfClass:[NSNumber class]]) return topOfStack;
+    
+    NSString *operation = topOfStack;
+    
+    if ([operation isEqualToString:@"π"]) {
+        result = M_PI;
+    }
+    
+    // TODO: similarly, handle all other operations, including sin, cos, +, -, etc. (hint: see how many operands each operator needs).
+    
+    if ([operation isEqualToString:@"+"]) {
+        result = [[self popOperandOffProgramStack:stack] doubleValue] +
+        [[self popOperandOffProgramStack:stack] doubleValue];
+    } else if ([@"*" isEqualToString:operation]) {
+        result = [[self popOperandOffProgramStack:stack] doubleValue] *
+        [[self popOperandOffProgramStack:stack] doubleValue];
+    } else if ([operation isEqualToString:@"-"]) {
+        double subtrahend = [[self popOperandOffProgramStack:stack] doubleValue];
+        result = [[self popOperandOffProgramStack:stack] doubleValue] - subtrahend;
+    } else if ([operation isEqualToString:@"/"]) {
+        double divisor = [[self popOperandOffProgramStack:stack] doubleValue];
+        if (divisor) result = [[self popOperandOffProgramStack:stack] doubleValue] / divisor;
+    } else if ([operation isEqualToString:@"sin()"]){
+        result = sin([[self popOperandOffProgramStack:stack] doubleValue]);
+    } else if ([operation isEqualToString:@"cos()"]){
+        result = cos([[self popOperandOffProgramStack:stack] doubleValue]);
+    } else if ([operation isEqualToString:@"sqrt()"]){
+        double number = [[self popOperandOffProgramStack:stack] doubleValue];
+        if (number > 0) result = sqrt(number);
+    } else if ([operation isEqualToString:@"Clear"]){
+        while (topOfStack){
+            [stack removeLastObject];
+            topOfStack = [stack lastObject];
+        }
+    }
+    
+    return [NSNumber numberWithDouble:result];
+}
++ (BOOL)isOperation:(NSString *)operation {
+    
+    if ([operation isEqualToString:@"+"]) {
+        return YES;
+    } if ([@"*" isEqualToString:operation]) {
+        return YES;
+    } if ([operation isEqualToString:@"-"]) {
+        return YES;
+    } if ([operation isEqualToString:@"/"]) {
+        return YES;
+    } if ([operation isEqualToString:@"sin()"]){
+        return YES;
+    } if ([operation isEqualToString:@"cos()"]){
+        return YES;
+    } if ([operation isEqualToString:@"sqrt()"]){
+        return YES;
+    
+    }else return NO;
+        
+}
+/*
 + (double)popOperandOffProgramStack:(NSMutableArray *)stack
 {
     double result = 0;
@@ -94,7 +165,7 @@
     
     return result;
 }
-/*
+
 - (double)popOperand {
     NSNumber *operandObject = [self.programStack lastObject];
     if (operandObject) [self.programStack removeLastObject];
@@ -138,15 +209,36 @@
 }
 */
 
-+ (double)runProgram:(id)program
-{
-    NSMutableArray *stack;
-    if ([program isKindOfClass:[NSArray class]]) {
-        stack = [program mutableCopy];
-    }
-    return [self popOperandOffProgramStack:stack];
++ (id)runProgram:(id)program {
+    // Call the new runProgram method with a nil dictionary
+    return [self runProgram:program usingVariableValues:nil];
 }
 
+
++ (id)runProgram:(id)program
+usingVariableValues:(NSDictionary *)variableValues {
+    
+    
+    NSMutableArray *stack= [program mutableCopy];
+    
+    // For each item in the program
+    for (int i=0; i < [stack count]; i++) {
+        id obj = [stack objectAtIndex:i];
+        
+        // See whether we think the item is a variable
+        if ([obj isKindOfClass:[NSString class]] && ![self isOperation:obj]) {
+            id value = [variableValues objectForKey:obj];
+            // If value is not an instance of NSNumber, set it to zero
+            if (![value isKindOfClass:[NSNumber class]]) {
+                value = [NSNumber numberWithInt:0];
+            }
+            // Replace program variable with value.
+            [stack replaceObjectAtIndex:i withObject:value];
+        }		
+    }	
+    // Starting popping off the stack
+    return [self popOperandOffProgramStack:stack];	
+}
 
 @end
 
