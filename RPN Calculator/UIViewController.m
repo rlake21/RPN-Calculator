@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Ryan Lake. All rights reserved.
 //
 
-#import "GraphViewController.h"
+#import "UIViewController.h"
 #import "AxesDrawer.h"
 
 @interface UIViewController ()

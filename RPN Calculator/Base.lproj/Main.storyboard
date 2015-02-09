@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Calculator-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -357,7 +357,7 @@
                                     <rect key="frame" x="122" y="375" width="156" height="109"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="JAZ-a3-kkc" kind="show" identifier="GRAPH" id="F0t-m0-NVY"/>
+                                    <segue destination="JAZ-a3-kkc" kind="show" id="r8P-nm-J2H"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -387,7 +387,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Calculator" id="Kwc-bv-bTP"/>
+                    <navigationItem key="navigationItem" id="Kwc-bv-bTP"/>
                     <connections>
                         <outlet property="display" destination="hR8-KB-Uxg" id="C5L-xd-hDS"/>
                         <outlet property="enteredDisplay" destination="9i7-kW-oOD" id="T4J-Jw-og5"/>
@@ -406,7 +406,6 @@
                         <viewControllerLayoutGuide type="bottom" id="T1y-l2-ezl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eWe-2I-JuZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -418,6 +417,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Nza-2l-fww">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JmL-i9-crw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PxI-tg-Z9e" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="D5i-8s-YBa">
@@ -429,7 +429,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="f71-bg-zBr"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JmL-i9-crw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="715.5" y="321"/>
         </scene>
