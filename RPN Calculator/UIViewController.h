@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GraphViewController : UIViewController <UISplitViewControllerDelegate>
-
-@property (nonatomic, strong) id program;
-
-- (void)refreshView;
+@interface ViewController : UIViewController
 
 @end

@@ -357,7 +357,6 @@
                                     <rect key="frame" x="122" y="375" width="156" height="109"/>
                                 </variation>
                                 <connections>
-                                    <action selector="drawGraphPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="bpw-N7-qtF"/>
                                     <segue destination="JAZ-a3-kkc" kind="show" id="r8P-nm-J2H"/>
                                 </connections>
                             </button>
@@ -407,7 +406,6 @@
                         <viewControllerLayoutGuide type="bottom" id="T1y-l2-ezl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eWe-2I-JuZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -419,6 +417,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Nza-2l-fww">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JmL-i9-crw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PxI-tg-Z9e" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="D5i-8s-YBa">
@@ -430,7 +429,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="f71-bg-zBr"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JmL-i9-crw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="715.5" y="321"/>
         </scene>
