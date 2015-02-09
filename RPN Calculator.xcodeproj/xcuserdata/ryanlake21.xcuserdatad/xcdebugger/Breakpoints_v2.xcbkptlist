@@ -9,14 +9,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RPN Calculator/ViewController.m"
+            filePath = "RPN Calculator/CalculatorViewController.m"
             timestampString = "444515642.928127"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-enterPressed"
-            landmarkType = "5">
+            endingLineNumber = "71">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,7 +23,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RPN Calculator/UIViewController.m"
+            filePath = "RPN Calculator/GraphViewController.m"
             timestampString = "444516417.782221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
