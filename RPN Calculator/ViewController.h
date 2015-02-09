@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *display;
 @property (weak, nonatomic) IBOutlet UILabel *enteredDisplay;
 
+//TODO: add another property (of type outlet) that displays the o/p from descriptionOfProgram
+
 @end
 
