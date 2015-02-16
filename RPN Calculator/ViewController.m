@@ -11,6 +11,7 @@
 
 @interface ViewController ()
 @property (nonatomic) BOOL userIsInTheMiddleOfEnteringANumber;
+@property (nonatomic, strong) NSDictionary *variableValue;
 @property (nonatomic) BOOL userEnteredADecimal;
 @property (nonatomic, strong) CalculatorBrain *brain;
 @end
@@ -53,6 +54,19 @@
     [self enterPressed];
 }
 
+
+- (NSDictionary *)variableValues {
+    
+    
+    // create a dictionary which holds the value of variable. Can be easily extended to keep more than one variable.
+    _variableValue = [NSDictionary dictionaryWithObjectsAndKeys:
+                                @"x", 1,
+                                   nil];
+    
+    
+    return _variableValue;
+}
+
 - (IBAction)decimalPressed:(id)sender {
     NSString *digit = [sender currentTitle];
     if (!self.userEnteredADecimal){
@@ -82,7 +96,7 @@
     }
     
     NSString *operation = [sender currentTitle];
-    double result = [self.brain performOperation:operation];
+    double result = [[self.brain performOperation:operation] doubleValue];
     self.display.text = [NSString stringWithFormat:@"%g",result];
     if ([operation  isEqual: @"Clear"]){
         self.enteredDisplay.text = [NSString stringWithFormat:@"Entered: "];
