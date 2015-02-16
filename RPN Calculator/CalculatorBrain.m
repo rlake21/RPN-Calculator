@@ -40,8 +40,7 @@
     [self.programStack addObject:operation];
 }
 -(void)pushOperand:(double)operand{
-    NSNumber *operandObject = [NSNumber numberWithDouble:operand];
-    [self.programStack addObject:operandObject];
+    [self.programStack addObject:[NSNumber numberWithDouble:operand]];
 }
 -(void)pushVariable:(NSString*)variable{
     [self.programStack addObject:variable];
@@ -87,13 +86,10 @@
             double number = [[self popOperandOffProgramStack:stack] doubleValue];
             if (number > 0) result = sqrt(number);
         } else if ([operation isEqualToString:@"π"]){
-            result = 3.141592;
+            result = M_PI;
         } else if ([operation isEqualToString:@"Clear"]){
-            if(topOfStack)
-                while (topOfStack){
-                    [stack removeLastObject];
-                    topOfStack = [stack lastObject];
-                }
+            [stack removeAllObjects];
+            return nil;
         }
     }
     
@@ -108,7 +104,9 @@
     if ([operation isEqualToString:@"*"]) return YES;
     if ([operation isEqualToString:@"sin()"]) return YES;
     if ([operation isEqualToString:@"cos()"]) return YES;
+    if ([operation isEqualToString:@"π"]) return YES;
     if ([operation isEqualToString:@"sqrt()"]) return YES;
+    if ([operation isEqualToString:@"Clear"]) return YES;
     
     else return NO;
 }
@@ -128,7 +126,7 @@ usingVariableValues:(NSDictionary *)variableValues {
             id value = [variableValues objectForKey:obj];
             // If value is not an instance of NSNumber, set it to zero
             if (![value isKindOfClass:[NSNumber class]]) {
-                value = [NSNumber numberWithInt:0];
+                value = [NSNumber numberWithInt:1];
             }
             // Replace program variable with value.
             [stack replaceObjectAtIndex:i withObject:value];

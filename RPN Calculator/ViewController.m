@@ -51,7 +51,7 @@
     }
     [self.brain pushVariable:[sender currentTitle]];
     self.display.text = [sender currentTitle];
-    [self enterPressed];
+    //[self enterPressed];
 }
 
 
@@ -61,6 +61,7 @@
     // create a dictionary which holds the value of variable. Can be easily extended to keep more than one variable.
     _variableValue = [NSDictionary dictionaryWithObjectsAndKeys:
                                 @"x", 1,
+                                1, @"x",
                                    nil];
     
     
@@ -81,12 +82,9 @@
 }
 
 - (IBAction)enterPressed {
-    NSString *previousDisplay = self.enteredDisplay.text;
-    self.enteredDisplay.text = [NSString stringWithFormat:@"%@%s%@", previousDisplay, " ", self.display.text];
     
     [self.brain pushOperand:[self.display.text doubleValue]];
-    self.userIsInTheMiddleOfEnteringANumber = NO;
-    self.userEnteredADecimal = NO;
+    [self updateView];
 }
 
 - (IBAction)operationPressed:(UIButton *)sender {
@@ -96,14 +94,43 @@
     }
     
     NSString *operation = [sender currentTitle];
-    double result = [[self.brain performOperation:operation] doubleValue];
-    self.display.text = [NSString stringWithFormat:@"%g",result];
-    if ([operation  isEqual: @"Clear"]){
+    NSString *previousDisplay = self.enteredDisplay.text;
+    
+    if ([operation  isEqualToString: @"Clear"]){
         self.enteredDisplay.text = [NSString stringWithFormat:@"Entered: "];
-    } else {
-        NSString *previousDisplay = self.enteredDisplay.text;
+        self.display.text = @"0";
+    }else{
         self.enteredDisplay.text = [NSString stringWithFormat:@"%@%s%@",previousDisplay, " ", operation];
     }
+    [self.brain pushOperation:[sender currentTitle]];
+    [self updateView];
+    
+    
+}
+
+-(void)updateView {
+    
+    // Find the result by running the program passing in the test variable values
+    id result = [CalculatorBrain runProgram:self.brain.program
+                        usingVariableValues:self.variableValue];
+    
+    // update display property based on the type of the result. If string, display as is. if number, convert to string format.
+    NSString *previousDisplay = self.enteredDisplay.text;
+    if(result != nil){
+        self.enteredDisplay.text = [NSString stringWithFormat:@"%@%s%@", previousDisplay, " ", result];
+        self.display.text = [NSString stringWithFormat:@"%@",result];
+    } else {
+        self.enteredDisplay.text = [NSString stringWithFormat:@"Entered: "];
+        self.display.text = @"0";
+    }
+    
+    // update the label with description of program
+    
+    
+    
+    // And the user isn't in the middle of entering a number
+    self.userIsInTheMiddleOfEnteringANumber = NO;
+    self.userEnteredADecimal = NO;
 }
 
 @end
