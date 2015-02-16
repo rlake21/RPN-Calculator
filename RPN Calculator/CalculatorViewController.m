@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Ryan Lake. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CalculatorViewController.h"
 #import "CalculatorBrain.h"
 
-@interface ViewController ()
+@interface CalculatorViewController ()
 @property (nonatomic) BOOL userIsInTheMiddleOfEnteringANumber;
 @property (nonatomic) BOOL userEnteredADecimal;
 @property (nonatomic, strong) CalculatorBrain *brain;
@@ -18,7 +18,7 @@
 
 
 
-@implementation ViewController
+@implementation CalculatorViewController
 
 @synthesize display;
 @synthesize enteredDisplay;
@@ -82,7 +82,7 @@
     }
     
     NSString *operation = [sender currentTitle];
-    double result = [self.brain performOperation:operation];
+    double result = [[self.brain performOperation:operation] doubleValue];
     self.display.text = [NSString stringWithFormat:@"%g",result];
     if ([operation  isEqual: @"Clear"]){
         self.enteredDisplay.text = [NSString stringWithFormat:@"Entered: "];
