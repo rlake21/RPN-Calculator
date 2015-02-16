@@ -85,10 +85,11 @@
         } else if ([operation isEqualToString:@"π"]){
             result = 3.141592;
         } else if ([operation isEqualToString:@"Clear"]){
-            while (topOfStack){
-                [stack removeLastObject];
-                topOfStack = [stack lastObject];
-            }
+            if(topOfStack)
+                while (topOfStack){
+                    [stack removeLastObject];
+                    topOfStack = [stack lastObject];
+                }
         }
     }
     
