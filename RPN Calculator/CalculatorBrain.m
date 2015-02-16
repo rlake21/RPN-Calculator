@@ -50,7 +50,7 @@
 }
 - (double)performOperation:(NSString *)operation
 {
-    [self.programStack addObject:operation];
+    //[self.programStack addObject:operation];
     return [[[self class] runProgram:self.program] doubleValue];
 }
 
@@ -119,6 +119,39 @@
     }else return NO;
         
 }
+
++ (id)runProgram:(id)program {
+    // Call the new runProgram method with a nil dictionary
+    return [self runProgram:program usingVariableValues:nil];
+}
+
+
++ (id)runProgram:(id)program
+usingVariableValues:(NSDictionary *)variableValues {
+    
+    
+    NSMutableArray *stack= [program mutableCopy];
+    
+    // For each item in the program
+    for (int i=0; i < [stack count]; i++) {
+        id obj = [stack objectAtIndex:i];
+        
+        // See whether we think the item is a variable
+        if ([obj isKindOfClass:[NSString class]] && ![self isOperation:obj]) {
+            id value = [variableValues objectForKey:obj];
+            // If value is not an instance of NSNumber, set it to zero
+            if (![value isKindOfClass:[NSNumber class]]) {
+                value = [NSNumber numberWithInt:0];
+            }
+            // Replace program variable with value.
+            [stack replaceObjectAtIndex:i withObject:value];
+        }
+    }
+    // Starting popping off the stack
+    return [self popOperandOffProgramStack:stack];
+}
+
+@end
 /*
 + (double)popOperandOffProgramStack:(NSMutableArray *)stack
 {
@@ -208,39 +241,6 @@
     return result;
 }
 */
-
-+ (id)runProgram:(id)program {
-    // Call the new runProgram method with a nil dictionary
-    return [self runProgram:program usingVariableValues:nil];
-}
-
-
-+ (id)runProgram:(id)program
-usingVariableValues:(NSDictionary *)variableValues {
-    
-    
-    NSMutableArray *stack= [program mutableCopy];
-    
-    // For each item in the program
-    for (int i=0; i < [stack count]; i++) {
-        id obj = [stack objectAtIndex:i];
-        
-        // See whether we think the item is a variable
-        if ([obj isKindOfClass:[NSString class]] && ![self isOperation:obj]) {
-            id value = [variableValues objectForKey:obj];
-            // If value is not an instance of NSNumber, set it to zero
-            if (![value isKindOfClass:[NSNumber class]]) {
-                value = [NSNumber numberWithInt:0];
-            }
-            // Replace program variable with value.
-            [stack replaceObjectAtIndex:i withObject:value];
-        }		
-    }	
-    // Starting popping off the stack
-    return [self popOperandOffProgramStack:stack];	
-}
-
-@end
 
 /*
  

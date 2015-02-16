@@ -7,18 +7,21 @@
 //
 
 #import "CalculatorViewController.h"
+#import "GraphViewController.h"
 #import "CalculatorBrain.h"
 
-@interface ViewController ()
+@interface CalculatorViewController ()
 @property (nonatomic) BOOL userIsInTheMiddleOfEnteringANumber;
 @property (nonatomic) BOOL userEnteredADecimal;
 @property (nonatomic, strong) CalculatorBrain *brain;
+@property (nonatomic, strong) GraphViewController *graphViewController;
+@property (nonatomic, strong) NSDictionary *variableValue;
 @end
 
 
 
 
-@implementation ViewController
+@implementation CalculatorViewController
 
 @synthesize display;
 @synthesize enteredDisplay;
@@ -26,10 +29,21 @@
 @synthesize userEnteredADecimal;
 @synthesize brain = _brain;
 
-- (CalculatorBrain *)brain{
+
+- (GraphViewController *)graphViewController {
+    // TODO: declare the delegate protocol in viewcontroller.h to be able to use this functionality
+    return self.popoverDelegate ?
+    self.popoverDelegate :[self.splitViewController.viewControllers lastObject];
+}
+
+
+- (CalculatorBrain *)brain {
+    // TODO: Ditto from above. Declare the delegate protocol in viewcontroller.h to be able to use this functionality
+    if (self.popoverDelegate) _brain = [[self.popoverDelegate delegateController] brain];
     if (!_brain) _brain = [[CalculatorBrain alloc] init];
     return _brain;
 }
+
 
 - (IBAction)digitPressed:(UIButton *)sender {
     
@@ -51,6 +65,16 @@
     [self.brain pushVariable:[sender currentTitle]];
     self.display.text = [sender currentTitle];
     [self enterPressed];
+}
+
+- (NSDictionary *)variableValues {
+    
+    
+    // create a dictionary which holds the value of variable. Can be easily extended to keep more than one variable.
+    _variableValue = @{
+                      @"x" : [NSNumber numberWithInt:1]
+                      };
+    return _variableValue;
 }
 
 - (IBAction)decimalPressed:(id)sender {
@@ -94,5 +118,6 @@
         self.enteredDisplay.text = [NSString stringWithFormat:@"%@%s%@",previousDisplay, " ", operation];
     }
 }
+
 
 @end
