@@ -8,18 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-
-@protocol ControllerDelegate
-@property (nonatomic) id delegateController;
-@end
-@interface CalculatorViewController : UIViewController
+@interface ViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *display;
 @property (weak, nonatomic) IBOutlet UILabel *enteredDisplay;
-@property (nonatomic) id delegateController;
 
-
-
-
-@property (nonatomic) id<ControllerDelegate> popoverDelegate;
 @end
+

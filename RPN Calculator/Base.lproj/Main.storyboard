@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Calculator-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hR8-KB-Uxg">
-                                <rect key="frame" x="16" y="64" width="279" height="42"/>
+                                <rect key="frame" x="16" y="28" width="279" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -25,8 +25,25 @@
                                     <rect key="frame" x="16" y="64" width="351" height="42"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thc-Va-YGH">
+                                <rect key="frame" x="16" y="78" width="64" height="37"/>
+                                <state key="normal" title="7">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="114" width="64" height="37"/>
+                                </variation>
+                                <connections>
+                                    <action selector="digitPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2n7-E5-I6k"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLA-by-grX">
-                                <rect key="frame" x="88" y="114" width="64" height="37"/>
+                                <rect key="frame" x="88" y="78" width="64" height="37"/>
                                 <state key="normal" title="8">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -43,7 +60,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24J-8L-giC">
-                                <rect key="frame" x="160" y="114" width="64" height="37"/>
+                                <rect key="frame" x="160" y="78" width="64" height="37"/>
                                 <state key="normal" title="9">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -60,7 +77,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdA-gw-S5w">
-                                <rect key="frame" x="16" y="159" width="64" height="37"/>
+                                <rect key="frame" x="16" y="123" width="64" height="37"/>
                                 <state key="normal" title="4">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -77,7 +94,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqo-qD-z8A">
-                                <rect key="frame" x="88" y="159" width="64" height="37"/>
+                                <rect key="frame" x="88" y="123" width="64" height="37"/>
                                 <state key="normal" title="5">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -94,7 +111,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSJ-K8-0gO">
-                                <rect key="frame" x="160" y="159" width="64" height="37"/>
+                                <rect key="frame" x="160" y="123" width="64" height="37"/>
                                 <state key="normal" title="6">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -111,7 +128,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXD-OA-AiC">
-                                <rect key="frame" x="16" y="204" width="64" height="24"/>
+                                <rect key="frame" x="16" y="168" width="64" height="24"/>
                                 <state key="normal" title="1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -128,7 +145,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8RK-iB-CgT">
-                                <rect key="frame" x="88" y="204" width="64" height="30"/>
+                                <rect key="frame" x="88" y="168" width="64" height="30"/>
                                 <state key="normal" title="2">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -145,7 +162,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5h-1W-G7D">
-                                <rect key="frame" x="160" y="204" width="64" height="30"/>
+                                <rect key="frame" x="160" y="168" width="64" height="30"/>
                                 <state key="normal" title="3">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -162,7 +179,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2na-YR-Ts8">
-                                <rect key="frame" x="88" y="261" width="64" height="31"/>
+                                <rect key="frame" x="88" y="225" width="64" height="31"/>
                                 <state key="normal" title="0">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -179,7 +196,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ay-xh-H7I">
-                                <rect key="frame" x="231" y="114" width="64" height="37"/>
+                                <rect key="frame" x="231" y="78" width="64" height="37"/>
                                 <state key="normal" title="*">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -227,7 +244,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bF-tx-jpQ">
-                                <rect key="frame" x="231" y="159" width="64" height="37"/>
+                                <rect key="frame" x="231" y="123" width="64" height="37"/>
                                 <state key="normal" title="/">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -239,7 +256,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPG-F8-1vH">
-                                <rect key="frame" x="231" y="261" width="64" height="31"/>
+                                <rect key="frame" x="231" y="225" width="64" height="31"/>
                                 <state key="normal" title="-">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -251,7 +268,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFv-Hv-rRS">
-                                <rect key="frame" x="160" y="261" width="64" height="31"/>
+                                <rect key="frame" x="160" y="225" width="64" height="31"/>
                                 <state key="normal" title="Enter">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -263,7 +280,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CaJ-KL-C4J">
-                                <rect key="frame" x="231" y="204" width="64" height="30"/>
+                                <rect key="frame" x="231" y="168" width="64" height="30"/>
                                 <state key="normal" title="+">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -271,11 +288,11 @@
                                     <rect key="frame" x="231" y="204" width="64" height="30"/>
                                 </variation>
                                 <connections>
-                                    <action selector="operationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c30-67-X2j"/>
+                                    <action selector="operationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hRM-lq-ErX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGE-qW-4vs">
-                                <rect key="frame" x="16" y="255" width="64" height="37"/>
+                                <rect key="frame" x="16" y="219" width="64" height="37"/>
                                 <state key="normal" title=".">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -343,23 +360,6 @@
                                     <segue destination="JAZ-a3-kkc" kind="show" id="r8P-nm-J2H"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thc-Va-YGH">
-                                <rect key="frame" x="16" y="114" width="64" height="37"/>
-                                <state key="normal" title="7">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="114" width="64" height="37"/>
-                                </variation>
-                                <connections>
-                                    <action selector="digitPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2n7-E5-I6k"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -387,7 +387,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Calculator" id="Kwc-bv-bTP"/>
+                    <navigationItem key="navigationItem" id="Kwc-bv-bTP"/>
                     <connections>
                         <outlet property="display" destination="hR8-KB-Uxg" id="C5L-xd-hDS"/>
                         <outlet property="enteredDisplay" destination="9i7-kW-oOD" id="T4J-Jw-og5"/>
@@ -406,18 +406,18 @@
                         <viewControllerLayoutGuide type="bottom" id="T1y-l2-ezl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eWe-2I-JuZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vo4-4G-TsX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1501.5" y="1025"/>
+            <point key="canvasLocation" x="1501.5" y="1071"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nza-2l-fww">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JmL-i9-crw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PxI-tg-Z9e" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="D5i-8s-YBa">
@@ -429,7 +429,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="f71-bg-zBr"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JmL-i9-crw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="715.5" y="321"/>
         </scene>
