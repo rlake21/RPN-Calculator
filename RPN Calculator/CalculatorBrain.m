@@ -35,10 +35,6 @@
 }
 
 
-- (void)pushOperation:(NSString *) operation {
-    [self.programStack addObject:operation];
-}
-
 -(void)pushOperand:(double)operand{
     NSNumber *operandObject = [NSNumber numberWithDouble:operand];
     [self.programStack addObject:operandObject];
@@ -47,18 +43,18 @@
     [self.programStack addObject:variable];
 }
 
-- (id)performOperation:(NSString *)operation
+- (double)performOperation:(NSString *)operation
 {
     [self.programStack addObject:operation];
     return [[self class] runProgram:self.program];
 }
 
-+ (id)popOperandOffProgramStack:(NSMutableArray *)stack
++ (double)popOperandOffProgramStack:(NSMutableArray *)stack
 {
     double result = 0;
     
     id topOfStack = [stack lastObject];
-    if (topOfStack) [stack removeLastObject]; else return @"0";
+    if (topOfStack) [stack removeLastObject];
     
     if ([topOfStack isKindOfClass:[NSNumber class]])
     {
@@ -68,26 +64,26 @@
     {
         NSString *operation = topOfStack;
         if ([operation isEqualToString:@"+"]) {
-            result = [[self popOperandOffProgramStack:stack] doubleValue] +
-            [[self popOperandOffProgramStack:stack] doubleValue];
+            result = [self popOperandOffProgramStack:stack] +
+            [self popOperandOffProgramStack:stack];
         } else if ([@"*" isEqualToString:operation]) {
-            result = [[self popOperandOffProgramStack:stack] doubleValue] *
-            [[self popOperandOffProgramStack:stack] doubleValue];
+            result = [self popOperandOffProgramStack:stack] *
+            [self popOperandOffProgramStack:stack];
         } else if ([operation isEqualToString:@"-"]) {
-            double subtrahend = [[self popOperandOffProgramStack:stack] doubleValue];
-            result = [[self popOperandOffProgramStack:stack] doubleValue] - subtrahend;
+            double subtrahend = [self popOperandOffProgramStack:stack];
+            result = [self popOperandOffProgramStack:stack] - subtrahend;
         } else if ([operation isEqualToString:@"/"]) {
-            double divisor = [[self popOperandOffProgramStack:stack] doubleValue];
-            if (divisor) result = [[self popOperandOffProgramStack:stack] doubleValue] / divisor;
+            double divisor = [self popOperandOffProgramStack:stack];
+            if (divisor) result = [self popOperandOffProgramStack:stack] / divisor;
         } else if ([operation isEqualToString:@"sin()"]){
-            result = sin([[self popOperandOffProgramStack:stack] doubleValue]);
+            result = sin([self popOperandOffProgramStack:stack]);
         } else if ([operation isEqualToString:@"cos()"]){
-            result = cos([[self popOperandOffProgramStack:stack] doubleValue]);
+            result = cos([self popOperandOffProgramStack:stack]);
         } else if ([operation isEqualToString:@"sqrt()"]){
-            double number = [[self popOperandOffProgramStack:stack] doubleValue];
+            double number = [self popOperandOffProgramStack:stack];
             if (number > 0) result = sqrt(number);
         } else if ([operation isEqualToString:@"π"]){
-            result = M_PI;
+            result = 3.141592;
         } else if ([operation isEqualToString:@"Clear"]){
             if(topOfStack)
                 while (topOfStack){
@@ -97,78 +93,8 @@
         }
     }
     
-    return [NSNumber numberWithDouble:result];
+    return result;
 }
-
-+ (id)runProgram:(id)program
-{
-    NSMutableArray *stack;
-    if ([program isKindOfClass:[NSArray class]]) {
-        stack = [program mutableCopy];
-    }
-    return [self popOperandOffProgramStack:stack];
-}
-
-+ (BOOL)isOperation:(NSString *)operation {
-    
-    //TODO: Check to see if it's a valid operation.
-    
-    return YES;
-}
-
-+ (id)runProgram:(id)program
-usingVariableValues:(NSDictionary *)variableValues {
-    
-    
-    NSMutableArray *stack= [program mutableCopy];
-    
-    // For each item in the program
-    for (int i=0; i < [stack count]; i++) {
-        id obj = [stack objectAtIndex:i];
-        
-        // See whether we think the item is a variable
-        if ([obj isKindOfClass:[NSString class]]){
-            
-        //________&& ![self isOperation:obj]) {
-            id value = [variableValues objectForKey:obj];
-            // If value is not an instance of NSNumber, set it to zero
-            if (![value isKindOfClass:[NSNumber class]]) {
-                value = [NSNumber numberWithInt:0];
-            }
-            // Replace program variable with value.
-            [stack replaceObjectAtIndex:i withObject:value];
-        }		
-    }	
-    // Starting popping off the stack
-    return [self popOperandOffProgramStack:stack];	
-}
-/*
-- (IBAction)drawGraphPressed {
-    
-    if ([self graphViewController]) {
-        [[self graphViewController] setProgram:self.brain.program];
-        [[self graphViewController] refreshView ];
-    } else {
-        [self performSegueWithIdentifier:@"DisplayGraphView" sender:self];
-    }
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [segue.destinationViewController setProgram:self.brain.program];
-}
-
-
-- (void)viewDidAppear:(BOOL)animated {
-    [self updateView];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
-*/
-@end
-
-
 /*
 - (double)popOperand {
     NSNumber *operandObject = [self.programStack lastObject];
@@ -212,6 +138,18 @@ usingVariableValues:(NSDictionary *)variableValues {
     return result;
 }
 */
+
++ (double)runProgram:(id)program
+{
+    NSMutableArray *stack;
+    if ([program isKindOfClass:[NSArray class]]) {
+        stack = [program mutableCopy];
+    }
+    return [self popOperandOffProgramStack:stack];
+}
+
+
+@end
 
 /*
  
