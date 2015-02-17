@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSDictionary *variableValue;
 @property (nonatomic) BOOL userEnteredADecimal;
 @property (nonatomic, strong) CalculatorBrain *brain;
+@property (nonatomic) id<ControllerDelagate> popoverDelegate;
 @end
 
 
@@ -27,9 +28,24 @@
 @synthesize userEnteredADecimal;
 @synthesize brain = _brain;
 
-- (CalculatorBrain *)brain{
+/*
+- (GraphViewController *)graphViewController {
+    // TODO: declare the delegate protocol in viewcontroller.h to be able to use this functionality
+    return self.popoverDelegate ?
+    self.popoverDelegate :[self.splitViewController.viewControllers lastObject];
+}
+*/
+
+- (CalculatorBrain *)brain {
+    // TODO: Ditto from above. Declare the delegate protocol in viewcontroller.h to be able to use this functionality
+    if (self.popoverDelegate) _brain = [[self.popoverDelegate delegateController] brain];
     if (!_brain) _brain = [[CalculatorBrain alloc] init];
     return _brain;
+}
+
+
+- (void)setBrain:(CalculatorBrain *)brain {
+    _brain = brain;
 }
 
 - (IBAction)digitPressed:(UIButton *)sender {
