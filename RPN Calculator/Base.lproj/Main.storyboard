@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calculator-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -419,7 +419,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="Kwc-bv-bTP"/>
+                    <navigationItem key="navigationItem" title="Calculator" id="Kwc-bv-bTP"/>
                     <connections>
                         <outlet property="display" destination="hR8-KB-Uxg" id="C5L-xd-hDS"/>
                         <outlet property="enteredDisplay" destination="9i7-kW-oOD" id="T4J-Jw-og5"/>
@@ -429,15 +429,15 @@
             </objects>
             <point key="canvasLocation" x="1501.5" y="321"/>
         </scene>
-        <!--View Controller-->
+        <!--Graph View Controller-->
         <scene sceneID="WkU-5S-Sx6">
             <objects>
-                <viewController id="JAZ-a3-kkc" sceneMemberID="viewController">
+                <viewController id="JAZ-a3-kkc" customClass="GraphViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z5S-W4-gD8"/>
                         <viewControllerLayoutGuide type="bottom" id="T1y-l2-ezl"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eWe-2I-JuZ">
+                    <view key="view" contentMode="scaleToFill" id="eWe-2I-JuZ" customClass="GraphView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

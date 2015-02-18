@@ -15,6 +15,7 @@
 		F93CF65F1A675029007104D7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93CF65D1A675029007104D7 /* LaunchScreen.xib */; };
 		F93CF66B1A675029007104D7 /* RPN_CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F93CF66A1A675029007104D7 /* RPN_CalculatorTests.m */; };
 		F93CF6781A676A4C007104D7 /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = F93CF6771A676A4C007104D7 /* CalculatorBrain.m */; };
+		F95D616E1A9403C900402276 /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F95D616D1A9403C900402276 /* iPadStoryboard.storyboard */; };
 		F9EC5A831A7ECF01007FC2E7 /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EC5A821A7ECF01007FC2E7 /* GraphViewController.m */; };
 		F9EC5A871A7ECF58007FC2E7 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EC5A861A7ECF58007FC2E7 /* GraphView.m */; };
 		F9EC5A8A1A7ECFEC007FC2E7 /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EC5A881A7ECFEC007FC2E7 /* AxesDrawer.m */; };
@@ -46,6 +47,7 @@
 		F93CF66A1A675029007104D7 /* RPN_CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RPN_CalculatorTests.m; sourceTree = "<group>"; };
 		F93CF6761A676A4C007104D7 /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
 		F93CF6771A676A4C007104D7 /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = "<group>"; };
+		F95D616D1A9403C900402276 /* iPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPadStoryboard.storyboard; sourceTree = "<group>"; };
 		F9EC5A821A7ECF01007FC2E7 /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
 		F9EC5A841A7ECF3A007FC2E7 /* GraphViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
 		F9EC5A851A7ECF44007FC2E7 /* GraphView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				F93CF6551A675029007104D7 /* ViewController.h */,
 				F93CF6561A675029007104D7 /* ViewController.m */,
 				F93CF6581A675029007104D7 /* Main.storyboard */,
+				F95D616D1A9403C900402276 /* iPadStoryboard.storyboard */,
 				F9EC5A821A7ECF01007FC2E7 /* GraphViewController.m */,
 				F9EC5A841A7ECF3A007FC2E7 /* GraphViewController.h */,
 				F9EC5A851A7ECF44007FC2E7 /* GraphView.h */,
@@ -223,6 +226,7 @@
 				F93CF65A1A675029007104D7 /* Main.storyboard in Resources */,
 				F93CF65F1A675029007104D7 /* LaunchScreen.xib in Resources */,
 				F93CF65C1A675029007104D7 /* Images.xcassets in Resources */,
+				F95D616E1A9403C900402276 /* iPadStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

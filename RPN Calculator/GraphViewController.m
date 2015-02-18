@@ -21,6 +21,7 @@
 @implementation GraphViewController
 
 @synthesize program = _program;
+@synthesize delegateController;
 @synthesize graphView = _graphView;
 
 
