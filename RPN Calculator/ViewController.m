@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "GraphViewController.h"
 #import "CalculatorBrain.h"
 
 @interface ViewController ()
@@ -24,17 +25,18 @@
 
 @synthesize display;
 @synthesize enteredDisplay;
+@synthesize programDescriptionDisplay;
 @synthesize userIsInTheMiddleOfEnteringANumber;
 @synthesize userEnteredADecimal;
 @synthesize brain = _brain;
 
-/*
+
 - (GraphViewController *)graphViewController {
     // TODO: declare the delegate protocol in viewcontroller.h to be able to use this functionality
     return self.popoverDelegate ?
     self.popoverDelegate :[self.splitViewController.viewControllers lastObject];
 }
-*/
+
 
 - (CalculatorBrain *)brain {
     // TODO: Ditto from above. Declare the delegate protocol in viewcontroller.h to be able to use this functionality
@@ -65,7 +67,8 @@
     if (self.userIsInTheMiddleOfEnteringANumber){
         [self enterPressed];
     }
-    [self.brain pushVariable:[sender currentTitle]];
+    NSString *title = [sender currentTitle];
+    [self.brain pushVariable:title];
     self.display.text = [sender currentTitle];
     //[self enterPressed];
 }
@@ -75,11 +78,17 @@
     
     
     // create a dictionary which holds the value of variable. Can be easily extended to keep more than one variable.
+    if (!_variableValue) {
+        _variableValue =  [NSDictionary dictionaryWithObjectsAndKeys:
+                           [NSNumber numberWithDouble:4], @"x",nil];
+    }
+    /*
+    double xval = 1;
+    //_variableValue = [[NSDictionary alloc] initWithObjectsAndKeys:
     _variableValue = [NSDictionary dictionaryWithObjectsAndKeys:
-                                @"x", 1,
-                                1, @"x",
-                                   nil];
-    
+                                //@"x", [NSNumber numberWithDouble:xval],
+                                [NSNumber numberWithDouble:xval], @"x",
+                                   nil];*/
     
     return _variableValue;
 }
@@ -122,6 +131,10 @@
     [self updateView];
     
     
+}
+- (IBAction)graphItPressed:(id)sender {
+    NSString *programDescription = [CalculatorBrain descriptionOfProgram:self.brain.program];
+    self.programDescriptionDisplay.text = [NSString stringWithFormat:@"%s%@","Graphing: ",programDescription];
 }
 
 -(void)updateView {

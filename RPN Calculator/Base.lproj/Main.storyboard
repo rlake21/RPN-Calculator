@@ -345,6 +345,7 @@
                                     <rect key="frame" x="122" y="375" width="156" height="109"/>
                                 </variation>
                                 <connections>
+                                    <action selector="graphItPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XAC-TM-hyX"/>
                                     <segue destination="JAZ-a3-kkc" kind="show" id="r8P-nm-J2H"/>
                                 </connections>
                             </button>
@@ -360,6 +361,15 @@
                                     <action selector="operationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HIP-LT-e6b"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A07-FP-CeG">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="463" width="351" height="37"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -388,6 +398,7 @@
                                 <exclude reference="Goy-Pk-gUY"/>
                                 <exclude reference="YNo-ue-Xeg"/>
                                 <exclude reference="0XQ-Lt-e7c"/>
+                                <exclude reference="A07-FP-CeG"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -416,6 +427,7 @@
                                 <include reference="Goy-Pk-gUY"/>
                                 <include reference="YNo-ue-Xeg"/>
                                 <include reference="0XQ-Lt-e7c"/>
+                                <include reference="A07-FP-CeG"/>
                             </mask>
                         </variation>
                     </view>
@@ -423,6 +435,7 @@
                     <connections>
                         <outlet property="display" destination="hR8-KB-Uxg" id="C5L-xd-hDS"/>
                         <outlet property="enteredDisplay" destination="9i7-kW-oOD" id="T4J-Jw-og5"/>
+                        <outlet property="programDescriptionDisplay" destination="A07-FP-CeG" id="unP-hr-CeY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
