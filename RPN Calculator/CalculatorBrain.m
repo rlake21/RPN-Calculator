@@ -31,23 +31,19 @@
 
 + (NSString *)descriptionOfProgram:(id)program {
     NSString *yEquals = @"y = ";
-    
-    NSMutableArray *stackCopy = [program mutableCopy];
     //NSMutableArray *operandArray;
     //NSMutableArray *operationArray;
-    
-    id topOfStack = [stackCopy lastObject];/*
-    while (topOfStack){
+    for (int i =0; i < [program count]; i++){
+        id obj = [program objectAtIndex:i];
         /*
-        if ([topOfStack isKindOfClass:[NSNumber class]]){
-            [operandArray addObject:topOfStack];
-        } else {//if ([CalculatorBrain isOperation: topOfStack]){
-            [operationArray addObject:topOfStack];
-        }
-        yEquals = [yEquals stringByAppendingString:topOfStack];
-        [stackCopy removeLastObject];//this line breaks at runtime
-        topOfStack = [stackCopy lastObject];
-    }*/
+        if ([obj isKindOfClass:[NSNumber class]]){
+            [operandArray addObject:obj];
+        } else if ([CalculatorBrain isOperation: obj]){
+            [operationArray addObject:obj];
+        }*/
+        NSString *previousY = yEquals;
+        yEquals = [NSString stringWithFormat:@"%@%s%@",previousY," ",obj];
+    }
     return yEquals;
 }
 
