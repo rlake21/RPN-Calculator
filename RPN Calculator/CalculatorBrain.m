@@ -31,16 +31,8 @@
 
 + (NSString *)descriptionOfProgram:(id)program {
     NSString *yEquals = @"y = ";
-    //NSMutableArray *operandArray;
-    //NSMutableArray *operationArray;
     for (int i =0; i < [program count]; i++){
         id obj = [program objectAtIndex:i];
-        /*
-        if ([obj isKindOfClass:[NSNumber class]]){
-            [operandArray addObject:obj];
-        } else if ([CalculatorBrain isOperation: obj]){
-            [operationArray addObject:obj];
-        }*/
         NSString *previousY = yEquals;
         yEquals = [NSString stringWithFormat:@"%@%s%@",previousY," ",obj];
     }
@@ -138,7 +130,7 @@ usingVariableValues:(NSDictionary *)variableValues {
             id value = [variableValues objectForKey:obj];
             // If value is not an instance of NSNumber, set it to zero
             if (![value isKindOfClass:[NSNumber class]]) {
-                value = [NSNumber numberWithInt:0];
+                value = [NSNumber numberWithInt:4];
             }
             // Replace program variable with value.
             [stack replaceObjectAtIndex:i withObject:value];
@@ -147,6 +139,7 @@ usingVariableValues:(NSDictionary *)variableValues {
     // Starting popping off the stack
     return [self popOperandOffProgramStack:stack];	
 }
+
 
 + (id)runProgram:(id)program
 {

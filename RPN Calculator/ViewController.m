@@ -70,7 +70,6 @@
     NSString *title = [sender currentTitle];
     [self.brain pushVariable:title];
     self.display.text = [sender currentTitle];
-    //[self enterPressed];
 }
 
 
@@ -82,13 +81,6 @@
         _variableValue =  [NSDictionary dictionaryWithObjectsAndKeys:
                            [NSNumber numberWithDouble:4], @"x",nil];
     }
-    /*
-    double xval = 1;
-    //_variableValue = [[NSDictionary alloc] initWithObjectsAndKeys:
-    _variableValue = [NSDictionary dictionaryWithObjectsAndKeys:
-                                //@"x", [NSNumber numberWithDouble:xval],
-                                [NSNumber numberWithDouble:xval], @"x",
-                                   nil];*/
     
     return _variableValue;
 }
@@ -151,6 +143,8 @@
     } else {
         self.enteredDisplay.text = [NSString stringWithFormat:@"Entered: "];
         self.display.text = @"0";
+        self.programDescriptionDisplay.text = [NSString stringWithFormat:@" "];
+        [self.brain.program removeAllObjects];
     }
     
     // update the label with description of program
